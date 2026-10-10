@@ -1,0 +1,6 @@
+[33m999f0f5[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m Add resume parser landing page: PDF upload, skill scoring, present/missing skills
+ README.md  |   3 [32m+[m[31m-[m
+ app.js     | 217 [32m+++++++++++++++++++++++++++++++++++++++++++++++++++++++++[m
+ index.html | 114 [32m++++++++++++++++++++++++++++++[m
+ styles.css | 232 [32m+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++[m
+ 4 files changed, 564 insertions(+), 2 deletions(-)
