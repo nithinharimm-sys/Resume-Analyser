@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>0 → Shipped Resume Parser</title>
+  <link rel="stylesheet" href="styles.css" />
+  <!-- pdf.js: parses the PDF entirely in the browser -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="container nav-inner">
+      <a class="logo" href="#">0 → Shipped<span class="logo-tag">resume parser</span></a>
+      <div class="nav-links">
+        <a href="#how">How it works</a>
+        <a href="#upload">Try it</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="container">
+      <p class="eyebrow">Mock build · runs 100% in your browser</p>
+      <h1>Score your resume <em>before</em> a recruiter does.</h1>
+      <p class="sub">
+        Upload a PDF and instantly see your skill coverage — what a parser picks up,
+        and what's missing. Built as the first milestone of
+        <strong>0 → Shipped: Resume Parser</strong>.
+      </p>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <!-- Upload -->
+    <section id="upload" class="card uploader">
+      <div id="dropzone" class="dropzone" tabindex="0" role="button" aria-label="Upload a PDF resume">
+        <div class="dropzone-icon">📄</div>
+        <p class="dropzone-title">Drop your resume here</p>
+        <p class="dropzone-sub">PDF only · parsed locally, nothing is uploaded</p>
+        <button class="btn btn-primary" type="button">Choose PDF</button>
+        <input id="file-input" type="file" accept="application/pdf,.pdf" hidden />
+      </div>
+      <p class="demo-row">
+        No PDF handy? <button id="try-sample" class="btn-link" type="button">Try a sample resume →</button>
+      </p>
+      <p id="status" class="status" hidden></p>
+    </section>
+
+    <!-- Results -->
+    <section id="results" class="results" hidden>
+      <div class="card score-card">
+        <div class="score-ring">
+          <svg viewBox="0 0 120 120" aria-hidden="true">
+            <circle class="ring-bg" cx="60" cy="60" r="52" />
+            <circle id="ring" class="ring-fill" cx="60" cy="60" r="52" />
+          </svg>
+          <div class="score-number"><span id="score-value">0</span><small>%</small></div>
+        </div>
+        <div class="score-meta">
+          <h2 id="score-label">—</h2>
+          <p id="score-detail" class="muted"></p>
+          <p id="parse-info" class="muted small"></p>
+          <button id="reset" class="btn btn-ghost" type="button">Parse another resume</button>
+        </div>
+      </div>
+
+      <div class="skills-grid">
+        <div class="card">
+          <h3><span class="dot dot-green"></span> Skills found <span id="found-count" class="count"></span></h3>
+          <div id="skills-present" class="chips"></div>
+        </div>
+        <div class="card">
+          <h3><span class="dot dot-red"></span> Skills missing <span id="missing-count" class="count"></span></h3>
+          <div id="skills-missing" class="chips"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- How it works -->
+    <section id="how" class="how">
+      <h2>How it works</h2>
+      <div class="steps">
+        <div class="step">
+          <span class="step-num">1</span>
+          <h3>Extract</h3>
+          <p>pdf.js reads every page of your PDF and pulls out the raw text — all in the browser.</p>
+        </div>
+        <div class="step">
+          <span class="step-num">2</span>
+          <h3>Match</h3>
+          <p>The text is scanned against a dictionary of ~20 common tech skills, aliases included.</p>
+        </div>
+        <div class="step">
+          <span class="step-num">3</span>
+          <h3>Score</h3>
+          <p>Matched skills are weighted and summed into one coverage score, with the gaps called out.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>0 → Shipped Resume Parser · mock milestone · no backend, no uploads</p>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
